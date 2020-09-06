@@ -58,12 +58,12 @@ namespace GraniteHouse
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseMvc(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
-                  name: "areas",
-                  template: "{area:Customer}/{controller=Home}/{action=Index}/{id?}"
-                );
+                endpoints.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
