@@ -20,7 +20,7 @@
             <th>
                 @Html.DisplayNameFor(m => m.Name)
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
 
         @foreach (var item in Model)
@@ -31,7 +31,7 @@
                     @* @item.Name*@
                 </td>
                 <td>
-                    Delete | Edit | Update
+                    <partial name="_TableButtonPartial" model="item.Id" />
                 </td>
             </tr>
 
