@@ -22,11 +22,13 @@ namespace GraniteHouse.Areas.Admin.Controllers
             return View(_db.ProductTypes.ToList());
         }
 
+        // Get Create Action Methon
         public IActionResult Create()
         {
             return View();
         }
 
+        // Post Create Action Methon
         [HttpPost]
         [ValidateAntiForgeryToken]
 
@@ -35,6 +37,44 @@ namespace GraniteHouse.Areas.Admin.Controllers
             if(ModelState.IsValid)
             {
                 _db.Add(productTypes);
+                await _db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(productTypes);
+        }
+
+        // Get Edit Action Methon
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            var productType = await _db.ProductTypes.FindAsync(id);
+            if (productType==null)
+            {
+                return NotFound();
+            }
+
+            return View(productType);
+        }
+
+
+        // Post Edit Action Methon
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Edit(int id, ProductTypes productTypes)
+        {
+            if(id != productTypes.Id)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                _db.Update(productTypes);
                 await _db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
