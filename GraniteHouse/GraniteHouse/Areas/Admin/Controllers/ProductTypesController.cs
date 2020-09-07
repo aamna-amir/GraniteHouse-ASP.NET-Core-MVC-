@@ -18,7 +18,7 @@ namespace GraniteHouse.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            return View(_db.ProductTypes.ToList();
+            return View(_db.ProductTypes.ToList());
         }
     }
 }
