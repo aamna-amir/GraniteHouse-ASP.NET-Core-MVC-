@@ -437,3 +437,6 @@ E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj
 E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\GraniteHouse.MvcApplicationPartsAssemblyInfo.cache
 E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ProductTypes\Create.cshtml.g.cs
 E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_TableButtonPartial.cshtml.g.cs
+E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ProductTypes\Edit.cshtml.g.cs
+E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ProductTypes\Details.cshtml.g.cs
+E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ProductTypes\Delete.cshtml.g.cs
