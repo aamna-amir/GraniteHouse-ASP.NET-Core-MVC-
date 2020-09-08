@@ -440,3 +440,8 @@ E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj
 E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ProductTypes\Edit.cshtml.g.cs
 E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ProductTypes\Details.cshtml.g.cs
 E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ProductTypes\Delete.cshtml.g.cs
+E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SpecialTags\Index.cshtml.g.cs
+E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SpecialTags\Create.cshtml.g.cs
+E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SpecialTags\Edit.cshtml.g.cs
+E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SpecialTags\Details.cshtml.g.cs
+E:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SpecialTags\Delete.cshtml.g.cs
