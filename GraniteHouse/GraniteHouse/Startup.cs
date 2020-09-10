@@ -12,6 +12,8 @@ using GraniteHouse.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.CodeAnalysis.Options;
+using Microsoft.Extensions.Options;
 
 namespace GraniteHouse
 {
@@ -34,7 +36,12 @@ namespace GraniteHouse
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
-            
+
+            services.AddSession(Option =>
+            {
+                Options.IdleTimeout = TimeSpan.FromMinutes(300);
+                Options.Cookie.HttpOnly = true;
+            })
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +65,8 @@ namespace GraniteHouse
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
