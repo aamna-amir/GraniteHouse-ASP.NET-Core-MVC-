@@ -118,7 +118,7 @@ namespace GraniteHouse.Controllers
                 var files = HttpContext.Request.Form.Files;
 
                 var productFromDb = _db.Products.Where(m => m.Id == ProductsVM.Products.Id).FirstOrDefault();
-                if(files[0].Length>0 && files[0]!=null)
+                if(files.Count>0 && files[0]!=null)
                 {
                     // if user uploads a new image
                     var uploads = Path.Combine(webRootPath, SD.ImageFolder);
@@ -127,7 +127,7 @@ namespace GraniteHouse.Controllers
 
                     if(System.IO.File.Exists(Path.Combine(uploads, ProductsVM.Products.Id+extension_old)))
                     {
-                        System.IO.File.Delete(Path.Combine(uploads, ProductsVM.Products.Id + extension_old);
+                        System.IO.File.Delete(Path.Combine(uploads, ProductsVM.Products.Id + extension_old));
                     }
 
                     using (var filestream = new FileStream(Path.Combine(uploads, ProductsVM.Products.Id + extension_new), FileMode.Create))
@@ -150,8 +150,26 @@ namespace GraniteHouse.Controllers
                 productFromDb.ShadeColor = ProductsVM.Products.ShadeColor;
                 await _db.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index))
+                return RedirectToAction(nameof(Index));
             }
+            return View(ProductsVM);
+        }
+
+        // Get : Details
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ProductsVM.Products = await _db.Products.Include(m => m.ProductTypes).SingleOrDefaultAsync(m => m.Id == id);
+
+            if (ProductsVM.Products == null)
+            {
+                return NotFound();
+            }
+
             return View(ProductsVM);
         }
     }
