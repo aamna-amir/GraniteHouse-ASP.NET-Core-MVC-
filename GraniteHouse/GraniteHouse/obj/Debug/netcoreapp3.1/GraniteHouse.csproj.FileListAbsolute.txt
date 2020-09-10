@@ -900,3 +900,4 @@ G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj
 G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\GraniteHouse.genruntimeconfig.cache
 G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Products\Details.cshtml.g.cs
 G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Products\Delete.cshtml.g.cs
+G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Details.cshtml.g.cs
