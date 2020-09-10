@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using GraniteHouse.Models;
+using GraniteHouse.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace GraniteHouse.Controllers
 {
     [Area("Customer")]
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _db;
+        public HomeController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -19,9 +26,10 @@ namespace GraniteHouse.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var productList = await _db.Products.Include(m => m.ProductTypes).Include(m => m.SpecialTags).ToListAsync();
+            return View(productList);
         }
 
         public IActionResult Privacy()
