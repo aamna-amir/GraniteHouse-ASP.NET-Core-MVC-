@@ -37,11 +37,11 @@ namespace GraniteHouse
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
 
-            services.AddSession(Option =>
+            services.AddSession(options =>
             {
-                Options.IdleTimeout = TimeSpan.FromMinutes(300);
-                Options.Cookie.HttpOnly = true;
-            })
+                options.IdleTimeout = TimeSpan.FromMinutes(300);
+                options.Cookie.HttpOnly = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
