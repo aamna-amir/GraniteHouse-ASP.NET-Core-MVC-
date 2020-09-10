@@ -8887,23 +8887,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\aamna\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ASP.NET\\Practice\\GraniteHouse-ASP.NET-Core-MVC-\\GraniteHouse\\GraniteHouse\\GraniteHouse.csproj",
+      "projectUniqueName": "G:\\ASP.NET\\Practice\\GraniteHouse-ASP.NET-Core-MVC-\\GraniteHouse\\GraniteHouse\\GraniteHouse.csproj",
       "projectName": "GraniteHouse",
-      "projectPath": "E:\\ASP.NET\\Practice\\GraniteHouse-ASP.NET-Core-MVC-\\GraniteHouse\\GraniteHouse\\GraniteHouse.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "E:\\ASP.NET\\Practice\\GraniteHouse-ASP.NET-Core-MVC-\\GraniteHouse\\GraniteHouse\\obj\\",
+      "projectPath": "G:\\ASP.NET\\Practice\\GraniteHouse-ASP.NET-Core-MVC-\\GraniteHouse\\GraniteHouse\\GraniteHouse.csproj",
+      "packagesPath": "C:\\Users\\aamna\\.nuget\\packages\\",
+      "outputPath": "G:\\ASP.NET\\Practice\\GraniteHouse-ASP.NET-Core-MVC-\\GraniteHouse\\GraniteHouse\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aamna\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8911,7 +8907,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "E:\\ASP.NET\\Practice\\C-sharp-Practice-Tasks\\Newget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8985,7 +8980,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

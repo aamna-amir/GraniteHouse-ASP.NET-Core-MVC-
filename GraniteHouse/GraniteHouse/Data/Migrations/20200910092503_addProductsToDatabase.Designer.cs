@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GraniteHouse.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200908113639_addProductsToDatabase")]
+    [Migration("20200910092503_addProductsToDatabase")]
     partial class addProductsToDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,10 +62,7 @@ namespace GraniteHouse.Data.Migrations
                     b.Property<string>("ShadeColor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SpeccialTagsId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SpecialTagsId")
+                    b.Property<int>("SpecialTagsId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -303,7 +300,9 @@ namespace GraniteHouse.Data.Migrations
 
                     b.HasOne("GraniteHouse.Models.SpecialTags", "SpecialTags")
                         .WithMany()
-                        .HasForeignKey("SpecialTagsId");
+                        .HasForeignKey("SpecialTagsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

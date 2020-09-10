@@ -18,8 +18,7 @@ namespace GraniteHouse.Data.Migrations
                     Image = table.Column<string>(nullable: true),
                     ShadeColor = table.Column<string>(nullable: true),
                     ProductTypeId = table.Column<int>(nullable: false),
-                    SpeccialTagsId = table.Column<int>(nullable: false),
-                    SpecialTagsId = table.Column<int>(nullable: true)
+                    SpecialTagsId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -35,7 +34,7 @@ namespace GraniteHouse.Data.Migrations
                         column: x => x.SpecialTagsId,
                         principalTable: "SpecialTags",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
