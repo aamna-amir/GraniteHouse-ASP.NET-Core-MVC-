@@ -34,7 +34,7 @@ namespace GraniteHouse.Areas.Customer.Controllers
             {
                 foreach(int cartItem in lstShoppingCart)
                 {
-                    Products prod = _db.Products.Include(p => p.SpecialTags).Include(p => p.ProductTypes).Where(p => p.Id == cartItem).FirstOrDefault();
+                    Products prod = _db.Products.Include(p => p.SpecialTags).Include(p => p.ProductTypes).Include(p => p.ShadeColors).Where(p => p.Id == cartItem).FirstOrDefault();
                     ShoppingCartVM.Products.Add(prod);
                 }
             }
