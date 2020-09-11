@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<GraniteHouse.Models.Products>
 @{
     ViewData["Title"] = "Index";
+    var AvailableCount = Model.Count(x => x.Available==true);
 }
 
 <br />
@@ -8,6 +9,7 @@
 <div class="row">
     <div class="col-6">
         <h2 class="text-info">Product List</h2>
+        @AvailableCount
     </div>
     <div class="col-6 text-right">
         <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; New Product</a>
@@ -32,39 +34,99 @@
             <th>
                 @Html.DisplayNameFor(m => m.SpecialTags)
             </th>
+            <th>
+                @Html.DisplayNameFor(m => m.ShadeColors)
+            </th>
             <th></th>
             <th class="text-center">Actions</th>
         </tr>
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(m => item.Name)
-                    @* @item.Name*@
-                </td>
-                <td>
-                    @Html.DisplayFor(m => item.Price)
-                    @* @item.Name*@
-                </td>
-                <td>
-                    @Html.DisplayFor(m => item.Available)
-                    @* @item.Name*@
-                </td>
-                <td>
-                    @Html.DisplayFor(m => item.ProductTypes.Name)
-                    @* @item.Name*@
-                </td>
-                <td>
-                    @Html.DisplayFor(m => item.SpecialTags.Name)
-                    @*@item.Name*@
-                </td>
+            @if (item.Available == true)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => item.Name)
+                        @* @item.Name*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Price)
+                        @* @item.Name*@
+                    </td>
+                    <td>
 
-                <td>
+                        @if (item.Available == true)
+                        {
+                            <span style="color: green">Yes</span>
+                        }
+                        else
+                        {
+                            <span style="color: red">No</span>
+                        }
+                        @* @item.Name*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.ProductTypes.Name)
+                        @* @item.Name*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.SpecialTags.Name)
+                        @*@item.Name*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.ShadeColors.Name)
+                        @*@item.Name*@
+                    </td>
 
-                    <partial name="_TableButtonPartial" model="item.Id" />
-                </td>
-            </tr>
+                    <td>
+
+                        <partial name="_TableButtonPartial" model="item.Id" />
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr style=" color: red">
+                    <td>
+                        @Html.DisplayFor(m => item.Name)
+                        @* @item.Name*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Price)
+                        @* @item.Name*@
+                    </td>
+                    <td>
+
+                        @if (item.Available == true)
+                        {
+                            <span style="color: green">Yes</span>
+                        }
+                        else
+                        {
+                            <span style="color: red">No</span>
+                        }
+                        @* @item.Name*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.ProductTypes.Name)
+                        @* @item.Name*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.SpecialTags.Name)
+                        @*@item.Name*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.ShadeColors.Name)
+                        @*@item.Name*@
+                    </td>
+
+                    <td>
+
+                        <partial name="_TableButtonPartial" model="item.Id" />
+                    </td>
+                </tr>
+            }
 
         }
     </table>

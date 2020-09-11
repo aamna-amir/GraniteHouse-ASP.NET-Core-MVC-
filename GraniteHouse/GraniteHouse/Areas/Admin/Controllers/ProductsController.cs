@@ -29,12 +29,13 @@ namespace GraniteHouse.Controllers
             {
                 ProductTypes = _db.ProductTypes.ToList(),
                 SpecialTags = _db.SpecialTags.ToList(),
+                ShadeColors = _db.ShadeColors.ToList(),
                 Products = new Models.Products()
             };
         }
         public async Task<IActionResult> Index()
         {
-            var products = _db.Products.Include(m => m.ProductTypes).Include(m => m.SpecialTags);
+            var products = _db.Products.Include(m => m.ProductTypes).Include(m => m.SpecialTags).Include(m=>m.ShadeColors);
             return View(await products.ToListAsync());
             
         }

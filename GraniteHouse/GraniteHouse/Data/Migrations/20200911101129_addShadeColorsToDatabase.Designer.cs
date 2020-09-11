@@ -4,14 +4,16 @@ using GraniteHouse.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GraniteHouse.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200911101129_addShadeColorsToDatabase")]
+    partial class addShadeColorsToDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,17 +62,12 @@ namespace GraniteHouse.Data.Migrations
                     b.Property<string>("ShadeColor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ShadeColorsId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SpecialTagsId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProductTypeId");
-
-                    b.HasIndex("ShadeColorsId");
 
                     b.HasIndex("SpecialTagsId");
 
@@ -314,12 +311,6 @@ namespace GraniteHouse.Data.Migrations
                     b.HasOne("GraniteHouse.Models.ProductTypes", "ProductTypes")
                         .WithMany()
                         .HasForeignKey("ProductTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GraniteHouse.Models.ShadeColors", "ShadeColors")
-                        .WithMany()
-                        .HasForeignKey("ShadeColorsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

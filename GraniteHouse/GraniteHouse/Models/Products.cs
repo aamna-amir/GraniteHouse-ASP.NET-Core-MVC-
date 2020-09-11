@@ -16,7 +16,7 @@ namespace GraniteHouse.Models
         public string Image { get; set; }
         public string ShadeColor { get; set; }
 
-        [Display(Name="Product Types")]
+        [Display(Name = "Product Types")]
         public int ProductTypeId { get; set; }
 
         [ForeignKey("ProductTypeId")]
@@ -27,5 +27,11 @@ namespace GraniteHouse.Models
 
         [ForeignKey("SpecialTagsId")]
         public virtual SpecialTags SpecialTags { get; set; }
+
+        [Display(Name = "Shade Colors")]
+        public int ShadeColorsId { get; set; }
+
+        [ForeignKey("ShadeColorsId")]
+        public virtual ShadeColors ShadeColors { get; set; }
     }
 }

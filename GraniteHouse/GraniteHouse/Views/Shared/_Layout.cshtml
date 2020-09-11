@@ -30,6 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-area="Admin" asp-controller="SpecialTags" asp-action="Index">Special Tags</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="Admin" asp-controller="ShadeColors" asp-action="Index">Shade Colors</a>
+                    </li>
                     @if (HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssShoppingCart") != null)
                     {
                         <li style="color: white">

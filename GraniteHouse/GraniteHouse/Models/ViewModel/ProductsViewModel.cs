@@ -10,5 +10,6 @@ namespace GraniteHouse.Models.ViewModel
         public Products Products { get; set; }
         public IEnumerable<ProductTypes> ProductTypes { get; set; }
         public IEnumerable<SpecialTags> SpecialTags { get; set; }
+        public IEnumerable<ShadeColors> ShadeColors { get; set; }
     }
 }

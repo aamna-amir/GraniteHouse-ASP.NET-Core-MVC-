@@ -39,7 +39,7 @@ namespace GraniteHouse
 
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromMinutes(300);
+                options.IdleTimeout = TimeSpan.FromDays(365);
                 options.Cookie.HttpOnly = true;
             });
         }
