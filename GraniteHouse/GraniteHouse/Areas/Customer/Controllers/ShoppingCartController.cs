@@ -47,7 +47,7 @@ namespace GraniteHouse.Areas.Customer.Controllers
         [ActionName("Index")]
         public IActionResult IndexPost()
         {
-            List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssSession");
+            List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssShoppingCart");
             ShoppingCartVM.Appointments.AppointmentDate = ShoppingCartVM.Appointments.AppointmentDate
                                                             .AddHours(ShoppingCartVM.Appointments.AppointmentTime.Hour)
                                                             .AddMinutes(ShoppingCartVM.Appointments.AppointmentTime.Minute);
@@ -71,6 +71,21 @@ namespace GraniteHouse.Areas.Customer.Controllers
             HttpContext.Session.Set("ssShoppingCart", lstCartItems);
 
             return RedirectToAction("Index");
+        }
+
+        // Remove
+        public IActionResult Remove(int id)
+        {
+            List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssShoppingCart");
+            if(lstCartItems.Count>0)
+            {
+                if(lstCartItems.Contains(id))
+                {
+                    lstCartItems.Remove(id);
+                }
+            }
+            HttpContext.Session.Set("ssShoppingCart", lstCartItems);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
