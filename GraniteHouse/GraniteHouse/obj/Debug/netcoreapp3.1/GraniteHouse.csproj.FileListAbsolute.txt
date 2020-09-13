@@ -907,3 +907,4 @@ G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj
 G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ShadeColors\Details.cshtml.g.cs
 G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\ShadeColors\Delete.cshtml.g.cs
 G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\ShoppingCart\Index.cshtml.g.cs
+G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_AppointmentProductDetails.cshtml.g.cs
