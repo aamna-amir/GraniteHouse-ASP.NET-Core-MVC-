@@ -26,6 +26,7 @@
 
         @foreach (var item in Model)
         {
+            
             <tr>
                 <td>    
                     @Html.DisplayFor(m=>item.Name)
@@ -36,7 +37,7 @@
                     <partial name="_TableButtonPartial" model="item.Id" />
                 </td>
             </tr>
-
+            @count
         }
     </table>
 </div>

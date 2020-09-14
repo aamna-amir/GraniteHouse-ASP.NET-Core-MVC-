@@ -36,6 +36,7 @@ namespace GraniteHouse.Controllers
         public async Task<IActionResult> Index()
         {
             var products = _db.Products.Include(m => m.ProductTypes).Include(m => m.SpecialTags).Include(m=>m.ShadeColors);
+            
             return View(await products.ToListAsync());
             
         }

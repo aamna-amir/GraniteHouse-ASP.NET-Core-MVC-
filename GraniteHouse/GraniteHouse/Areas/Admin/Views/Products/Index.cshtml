@@ -40,14 +40,16 @@
             <th></th>
             <th class="text-center">Actions</th>
         </tr>
-
+       
         @foreach (var item in Model)
         {
+            
             @if (item.Available == true)
             {
+
                 <tr>
                     <td>
-                        @Html.DisplayFor(m => item.Name)
+                        @Html.DisplayFor(m => item.Name) 
                         @* @item.Name*@
                     </td>
                     <td>
@@ -127,7 +129,7 @@
                     </td>
                 </tr>
             }
-
+           
         }
     </table>
 </div>
