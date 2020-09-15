@@ -18,9 +18,9 @@ namespace GraniteHouse.Models
         public DateTime AppointmentDate { get; set; }
         [NotMapped]
         public DateTime AppointmentTime { get; set; }
-        public string CutomerName { get; set; }
-        public string CutomerPhoneNumber { get; set; }
-        public string CutomerEmail { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerPhoneNumber { get; set; }
+        public string CustomerEmail { get; set; }
         public bool isConfirmed { get; set; }
     }
 }
