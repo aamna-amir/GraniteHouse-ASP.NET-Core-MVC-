@@ -952,3 +952,5 @@ G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj
 G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AdminUsers\Edit.cshtml.g.cs
 G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\AdminUsers\Delete.cshtml.g.cs
 G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Appointments\Index.cshtml.g.cs
+G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Appointments\Edit.cshtml.g.cs
+G:\ASP.NET\Practice\GraniteHouse-ASP.NET-Core-MVC-\GraniteHouse\GraniteHouse\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Appointments\Details.cshtml.g.cs
