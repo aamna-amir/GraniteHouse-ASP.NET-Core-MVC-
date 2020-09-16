@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using GraniteHouse.Data;
 using GraniteHouse.Models;
@@ -18,53 +19,172 @@ namespace GraniteHouse.Areas.Admin.Controllers
     public class AppointmentsController : Controller
     {
         private readonly ApplicationDbContext _db;
+        private int pageSize = 2;
         public AppointmentsController(ApplicationDbContext db)
         {
             _db = db;
         }
-        public async Task<IActionResult> Index(string searchName=null, string searchEmail=null, string searchNumber=null, string searchDate = null)
+        public async Task<IActionResult> Index(int productPage = 1, string searchName=null, string searchEmail=null, string searchNumber=null, string searchDate = null)
         {
             System.Security.Claims.ClaimsPrincipal currentUser = this.User;
             var claimsIdentity = (ClaimsIdentity)this.User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            AppoitmentsViewModel appoitmentsVM = new AppoitmentsViewModel()
+            AppoitmentsViewModel appointmentsVM = new AppoitmentsViewModel()
+            //AppointmentsViewModel appointmentVM = new AppointmentsViewModel()
             {
                 Appointments = new List<Models.Appointments>()
             };
 
-            appoitmentsVM.Appointments = _db.Appointments.Include(a => a.SalesPerson).ToList();
-            if(User.IsInRole(SD.AdminEndUser))
+            StringBuilder param = new StringBuilder();
+            param.Append("/Admin/Appointments?productPage=:");
+            param.Append("&searchName=");
+            if (searchName != null)
             {
-                appoitmentsVM.Appointments = appoitmentsVM.Appointments.Where(a => a.SalesPersonId == claim.Value).ToList();
+                param.Append(searchName);
             }
-            if(searchName!=null)
-            {
-                appoitmentsVM.Appointments = appoitmentsVM.Appointments.Where(a => a.CustomerName.ToLower().Contains(searchName.ToLower())).ToList();
-            }
+            param.Append("&searchEmail=");
             if (searchEmail != null)
             {
-                appoitmentsVM.Appointments = appoitmentsVM.Appointments.Where(a => a.CustomerEmail.ToLower().Contains(searchEmail.ToLower())).ToList();
+                param.Append(searchEmail);
             }
+            param.Append("&searchPhone=");
             if (searchNumber != null)
             {
-                appoitmentsVM.Appointments = appoitmentsVM.Appointments.Where(a => a.CustomerPhoneNumber.ToLower().Contains(searchNumber.ToLower())).ToList();
+                param.Append(searchNumber);
             }
+            param.Append("&searchDate=");
+            if (searchDate != null)
+            {
+                param.Append(searchDate);
+            }
+
+            appointmentsVM.Appointments = _db.Appointments.Include(a => a.SalesPerson).ToList();
+            if (User.IsInRole(SD.AdminEndUser))
+            {
+                appointmentsVM.Appointments = appointmentsVM.Appointments.Where(a => a.SalesPersonId == claim.Value).ToList();
+            }
+
+            if (searchName != null)
+            {
+                appointmentsVM.Appointments = appointmentsVM.Appointments.Where(a => a.CustomerName.ToLower().Contains(searchName.ToLower())).ToList();
+            }
+
+            if (searchEmail != null)
+            {
+                appointmentsVM.Appointments = appointmentsVM.Appointments.Where(a => a.CustomerEmail.ToLower().Contains(searchEmail.ToLower())).ToList();
+            }
+
+            if (searchNumber != null)
+            {
+                appointmentsVM.Appointments = appointmentsVM.Appointments.Where(a => a.CustomerPhoneNumber.ToLower().Contains(searchNumber.ToLower())).ToList();
+            }
+
             if (searchDate != null)
             {
                 try
                 {
                     DateTime appDate = Convert.ToDateTime(searchDate);
-                    appoitmentsVM.Appointments = appoitmentsVM.Appointments.Where(a => a.AppointmentDate.ToShortDateString().Equals(appDate.ToShortDateString())).ToList();
+                    appointmentsVM.Appointments = appointmentsVM.Appointments.Where(a => a.AppointmentDate.ToShortDateString().Equals(appDate.ToShortDateString())).ToList();
                 }
                 catch (Exception ex)
                 {
 
                     throw;
                 }
-            }
 
-            return View(appoitmentsVM);
+            }
+            var count = appointmentsVM.Appointments.Count;
+            appointmentsVM.Appointments = appointmentsVM.Appointments.OrderBy(p => p.AppointmentDate)
+            .Skip((productPage - 1) * pageSize)
+            .Take(pageSize).ToList();
+
+            appointmentsVM.PaggingInfo = new PaggingInfo
+            {
+                CurrentPage = productPage,
+                ItemsPerPage = pageSize,
+                TotalItems = count,
+                urlParam = param.ToString()
+            };
+
+
+            //System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            //var claimsIdentity = (ClaimsIdentity)this.User.Identity;
+            //var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            //AppoitmentsViewModel appoitmentsVM = new AppoitmentsViewModel()
+            //{
+            //    Appointments = new List<Models.Appointments>()
+            //};
+
+            //StringBuilder param = new StringBuilder();
+            //param.Append("/Admin/Appointments?productPage:");
+            //param.Append("&searchName=");
+            //if(searchName!=null)
+            //{
+            //    param.Append(searchName);
+            //}
+            //param.Append("&searchEmail=");
+            //if (searchEmail != null)
+            //{
+            //    param.Append(searchEmail);
+            //}
+            //param.Append("&searchNumber=");
+            //if (searchNumber != null)
+            //{
+            //    param.Append(searchNumber);
+            //}
+            //param.Append("&searchDate=");
+            //if (searchDate != null)
+            //{
+            //    param.Append(searchDate);
+            //}
+
+
+            //appoitmentsVM.Appointments = _db.Appointments.Include(a => a.SalesPerson).ToList();
+            //if(User.IsInRole(SD.AdminEndUser))
+            //{
+            //    appoitmentsVM.Appointments = appoitmentsVM.Appointments.Where(a => a.SalesPersonId == claim.Value).ToList();
+            //}
+            //if(searchName!=null)
+            //{
+            //    appoitmentsVM.Appointments = appoitmentsVM.Appointments.Where(a => a.CustomerName.ToLower().Contains(searchName.ToLower())).ToList();
+            //}
+            //if (searchEmail != null)
+            //{
+            //    appoitmentsVM.Appointments = appoitmentsVM.Appointments.Where(a => a.CustomerEmail.ToLower().Contains(searchEmail.ToLower())).ToList();
+            //}
+            //if (searchNumber != null)
+            //{
+            //    appoitmentsVM.Appointments = appoitmentsVM.Appointments.Where(a => a.CustomerPhoneNumber.ToLower().Contains(searchNumber.ToLower())).ToList();
+            //}
+            //if (searchDate != null)
+            //{
+            //    try
+            //    {
+            //        DateTime appDate = Convert.ToDateTime(searchDate);
+            //        appoitmentsVM.Appointments = appoitmentsVM.Appointments.Where(a => a.AppointmentDate.ToShortDateString().Equals(appDate.ToShortDateString())).ToList();
+            //    }
+            //    catch (Exception ex)
+            //    {
+
+            //        throw;
+            //    }
+            //}
+
+            //var count = appoitmentsVM.Appointments.Count;
+            //appoitmentsVM.Appointments = appoitmentsVM.Appointments.OrderBy(p => p.AppointmentDate)
+            //    .Skip((productPage - 1) * pageSize)
+            //    .Take(pageSize).ToList();
+
+            //appoitmentsVM.PaggingInfo = new PaggingInfo
+            //{
+            //    CurrentPage = productPage,
+            //    ItemsPerPage = pageSize,
+            //    TotalItems = count,
+            //    urlParam = param.ToString()
+            //};
+            return View(appointmentsVM);
         }
 
         // Edit

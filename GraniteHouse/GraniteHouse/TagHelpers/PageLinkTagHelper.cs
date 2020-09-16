@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace GraniteHouse.TagHelpers
 {
-    [HtmlTargetElement("div", Attributes ="page-model")]
+    [HtmlTargetElement("div", Attributes = "page-model")]
     public class PageLinkTagHelper : TagHelper
     {
         private IUrlHelperFactory urlHelperFactory;
@@ -28,17 +28,18 @@ namespace GraniteHouse.TagHelpers
         public string PageClass { get; set; }
         public string PageClassNormal { get; set; }
         public string PageClassSelected { get; set; }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             IUrlHelper urlHelper = urlHelperFactory.GetUrlHelper(ViewContext);
             TagBuilder result = new TagBuilder("div");
-            for(int i=1; i<=PageModel.totalPages;i++)
+            for (int i = 1; i <= PageModel.totalPages; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
                 string url = PageModel.urlParam.Replace(":", i.ToString());
                 tag.Attributes["href"] = url;
 
-                if(PageClassesEnabled)
+                if (PageClassesEnabled)
                 {
                     tag.AddCssClass(PageClass);
                     tag.AddCssClass(i == PageModel.CurrentPage ? PageClassSelected : PageClassNormal);
