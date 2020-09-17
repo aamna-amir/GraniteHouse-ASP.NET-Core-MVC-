@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<GraniteHouse.Models.ProductTypes>
 @{
     ViewData["Title"] = "Index";
+    var countProductTypes = Model.Count(x => x.Name == "Granite");
 }
 
 <br />
@@ -20,23 +21,31 @@
             <th>
                 @Html.DisplayNameFor(m => m.Name)
             </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Quantity)
+            </th>
             <th></th>
             <th class="text-center">Actions</th>
         </tr>
 
         @foreach (var item in Model)
         {
-            
+
             <tr>
-                <td>    
-                    @Html.DisplayFor(m=>item.Name)
+                <td>
+                    @Html.DisplayFor(m => item.Name)
                     @* @item.Name*@
                 </td>
                 <td>
-                    
+                    @countProductTypes
+                    @*@Html.DisplayFor(m => item.Quantity)*@
+                </td>
+
+                <td>
+
                     <partial name="_TableButtonPartial" model="item.Id" />
                 </td>
             </tr>
-            }
+        }
     </table>
 </div>

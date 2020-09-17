@@ -29,7 +29,7 @@
                 <label asp-for="Appointment.AppointmentDate"></label>
             </div>
             <div class="col-8">
-                <input asp-for="Appointment.AppointmentDate" disabled type="date" class="form-control" />
+                <input asp-for="Appointment.AppointmentDate" disabled type="text" id="datepicker" class="form-control" />
             </div>
         </div>
         <div class="form-group row">
@@ -37,7 +37,7 @@
                 <label asp-for="Appointment.AppointmentTime"></label>
             </div>
             <div class="col-8">
-                <input asp-for="Appointment.AppointmentTime" disabled id="timepicker" type="time" class="form-control" />
+                <input asp-for="Appointment.AppointmentTime" disabled id="timepicker" type="text" class="form-control" />
             </div>
         </div>
         <div class="form-group row">
@@ -84,9 +84,11 @@
 </div>
 
 @section Scripts{
-    
+    <script>
+
         $(document).ready(function () {
             var appointmentTime = document.getElementById('datepicker').value;
+            console.log(appointmentTime);
             var splitData = "";
             if (appointmentTime.indexOf(" ") > 0) {
                 splitData = appointmentTime.split(" ");
@@ -106,5 +108,5 @@
 
         });
 
-    </script>
+    </script>   
 }

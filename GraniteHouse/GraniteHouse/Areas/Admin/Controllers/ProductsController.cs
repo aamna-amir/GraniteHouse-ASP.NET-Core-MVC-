@@ -84,9 +84,13 @@ namespace GraniteHouse.Controllers
             }
             else
             {
+                ////when user does not upload image
+                //var uploads = Path.Combine(webRootPath, SD.ImageFolder + @"\" + SD.DefaultProductImage);
+                //System.IO.File.Copy(uploads, webRootPath + @"\" + SD.ImageFolder + @"\" + ProductsVM.Products.Id + ".png");
+                //productsFromDb.Image = @"\" + SD.ImageFolder + @"\" + ProductsVM.Products.Id + ".png";
                 // When user does not upload image
                 var uploads = Path.Combine(webRootPath, SD.ImageFolder + @"\" + SD.DefaultProductImage);
-                System.IO.File.Copy(uploads, webRootPath + @"\" + SD.ImageFolder + ProductsVM.Products.Id + ".png");
+                System.IO.File.Copy(uploads, webRootPath + @"\" + SD.ImageFolder + @"\" + ProductsVM.Products.Id + ".png");
                 productsFromDb.Image = @"\" + SD.ImageFolder + @"\" + ProductsVM.Products.Id + ".png";
             }
             await _db.SaveChangesAsync();
